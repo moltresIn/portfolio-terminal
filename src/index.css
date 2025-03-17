@@ -1,0 +1,185 @@
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-terminal text-terminal-gray font-mono m-0 p-0 min-h-screen w-screen max-w-[100vw] overflow-x-hidden text-base sm:text-lg;
+  }
+}
+
+@layer components {
+  .terminal-window {
+    @apply bg-terminal w-full h-full overflow-auto p-3 sm:p-4 md:p-6 text-base sm:text-lg;
+  }
+
+  .terminal-text {
+    @apply text-terminal-green break-words;
+  }
+
+  .terminal-prompt {
+    @apply text-terminal-amber font-bold whitespace-nowrap;
+  }
+
+  .terminal-input {
+    @apply bg-transparent border-none outline-none text-terminal-gray caret-terminal-gray font-mono w-full break-all;
+  }
+
+  .terminal-link {
+    @apply text-terminal-cyan underline cursor-pointer hover:text-terminal-amber transition-colors duration-200 break-all;
+  }
+  
+  .boot-animation {
+    @apply flex flex-col items-center justify-center h-screen w-screen bg-terminal overflow-hidden py-4 px-2;
+  }
+  
+  .boot-text {
+    @apply text-terminal-gray font-mono text-sm md:text-base text-center mb-2 opacity-0 animate-fade-in;
+  }
+  
+  .boot-progress {
+    @apply h-1 bg-terminal-green/20 rounded-full overflow-hidden w-64 md:w-80 mt-4;
+  }
+  
+  .boot-progress-bar {
+    @apply h-full bg-terminal-green animate-pulse-green;
+  }
+  
+  .boot-button {
+    @apply mt-8 px-6 py-3 bg-transparent border border-terminal-green text-terminal-green 
+    rounded-md hover:bg-terminal-green/10 transition-all duration-300 font-mono 
+    opacity-0 animate-fade-in shadow-[0_0_5px_#50fa7b] hover:shadow-[0_0_15px_#50fa7b];
+  }
+  
+  .code-scroll {
+    @apply w-full md:w-3/4 h-32 my-4 overflow-hidden text-left bg-black/20 rounded border border-terminal-gray/20 px-4 py-2;
+  }
+  
+  .code-scroll-content {
+    @apply animate-scroll-up whitespace-pre text-xs md:text-sm text-terminal-light-gray;
+  }
+  
+  .start-prompt {
+    @apply mt-4 text-terminal-amber animate-blink;
+  }
+  
+  .typing-effect {
+    @apply overflow-hidden whitespace-nowrap animate-type;
+  }
+  
+  /* Linux-specific styles */
+  .linux-header {
+    @apply font-mono tracking-tight;
+  }
+  
+  .linux-boot-log {
+    @apply font-mono leading-tight;
+  }
+  
+  .linux-progress {
+    @apply max-w-full;
+  }
+  
+  .linux-button {
+    @apply text-sm sm:text-base rounded border border-terminal-green;
+  }
+  
+  .linux-prompt {
+    @apply font-mono;
+  }
+}
