@@ -22,7 +22,7 @@ const TerminalPage: React.FC = () => {
   ];
 
   useEffect(() => {
-    document.title = "Terminal | Portfolio";
+    document.title = "Kishor Arjunan";
 
     // Prevent scrolling on this page
     document.body.style.overflow = "hidden";
